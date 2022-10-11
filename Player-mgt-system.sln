@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Player-mgt-system", "Player-mgt-system\Player-mgt-system.csproj", "{99BC1408-9049-46CB-9D46-BA375703693E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99BC1408-9049-46CB-9D46-BA375703693E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99BC1408-9049-46CB-9D46-BA375703693E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99BC1408-9049-46CB-9D46-BA375703693E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99BC1408-9049-46CB-9D46-BA375703693E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B13859C-3906-446E-B9C2-A0657B0FCDAD}
+	EndGlobalSection
+EndGlobal
