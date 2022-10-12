@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Player_mgt_system.Models;
 
 namespace Player_mgt_system.Models
 {
@@ -11,5 +12,7 @@ namespace Player_mgt_system.Models
         public DbSet<Player> players{ get; set; }
 
         public DbSet<User> Users{ get; set; }
+
+        public DbSet<Player_mgt_system.Models.Team>? Team { get; set; }
     }
 }

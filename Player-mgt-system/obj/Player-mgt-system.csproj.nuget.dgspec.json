@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\C#\\Player-mgt-system\\Player-mgt-system\\Player-mgt-system.csproj": {}
+    "C:\\Users\\Admin\\RiderProjects\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\C#\\Player-mgt-system\\Player-mgt-system\\Player-mgt-system.csproj": {
+    "C:\\Users\\Admin\\RiderProjects\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\C#\\Player-mgt-system\\Player-mgt-system\\Player-mgt-system.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\RiderProjects\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj",
         "projectName": "Player-mgt-system",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\C#\\Player-mgt-system\\Player-mgt-system\\Player-mgt-system.csproj",
+        "projectPath": "C:\\Users\\Admin\\RiderProjects\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\C#\\Player-mgt-system\\Player-mgt-system\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\RiderProjects\\asp-crud-player-mgt\\Player-mgt-system\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,11 +52,15 @@
               "target": "Package",
               "version": "[6.0.9, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

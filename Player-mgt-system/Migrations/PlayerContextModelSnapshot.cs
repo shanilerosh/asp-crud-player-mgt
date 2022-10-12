@@ -55,6 +55,35 @@ namespace Player_mgt_system.Migrations
                     b.ToTable("players");
                 });
 
+            modelBuilder.Entity("Player_mgt_system.Models.Team", b =>
+                {
+                    b.Property<int>("TeamId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeamId"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("TeamName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("TeamOwner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("TeamState")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(250)");
+
+                    b.HasKey("TeamId");
+
+                    b.ToTable("Team");
+                });
+
             modelBuilder.Entity("Player_mgt_system.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -62,6 +91,10 @@ namespace Player_mgt_system.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
+
+                    b.Property<string>("AuthStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
