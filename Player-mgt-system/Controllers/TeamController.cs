@@ -158,5 +158,22 @@ namespace Player_mgt_system.Controllers
         {
           return (_context.Team?.Any(e => e.TeamId == id)).GetValueOrDefault();
         }
+        
+        public async Task<IActionResult> AddPlayers(int? id)
+        {
+            if (id == null || _context.Team == null)
+            {
+                return NotFound();
+            }
+
+            var team = await _context.Team
+                .FirstOrDefaultAsync(m => m.TeamId == id);
+            if (team == null)
+            {
+                return NotFound();
+            }
+
+            return null;
+        }
     }
 }

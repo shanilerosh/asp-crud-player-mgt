@@ -19,4 +19,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\TrophyCib\Controllers" />
+    <Folder Include="Areas\TrophyCib\Data" />
+    <Folder Include="Areas\TrophyCib\Models" />
+    <Folder Include="Areas\TrophyCib\Views" />
+  </ItemGroup>
+
 </Project>
