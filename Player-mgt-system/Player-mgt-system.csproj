@@ -24,6 +24,7 @@
     <Folder Include="Areas\TrophyCib\Data" />
     <Folder Include="Areas\TrophyCib\Models" />
     <Folder Include="Areas\TrophyCib\Views" />
+    <Folder Include="Migrations" />
   </ItemGroup>
 
 </Project>

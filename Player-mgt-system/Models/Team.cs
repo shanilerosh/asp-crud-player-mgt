@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Player_mgt_system.Models
@@ -8,6 +9,7 @@ namespace Player_mgt_system.Models
         [Key]
         public int TeamId { get; set; }
         [Column(TypeName="nvarchar(250)")]
+        [DisplayName("Team Name")]
         [Required]
         public string TeamName { get; set; }
         [Column(TypeName = "nvarchar(250)")]

@@ -4,13 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h2>Player Details</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" style="color: green"><i class="fa-solid fa-user" ></i> Create New</a>
 </p>
 <table class="table">
-    <thead>
+    <thead class="table-bordered">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.PlayerName)
@@ -43,9 +43,12 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PlayId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PlayId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PlayId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.PlayId" style="color: green">
+                    <i class="fa-regular fa-pen-to-square"></i> Edit
+                </a> |
+                <a asp-action="Details" asp-route-id="@item.PlayId"><i class="fa-regular fa-eye"></i> View</a> |
+                <a asp-action="Delete" asp-route-id="@item.PlayId" style="color: red"><i class="fa-regular fa-trash"></i> Delete</a>
+                
             </td>
         </tr>
 }

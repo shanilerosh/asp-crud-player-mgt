@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<PlayerContext>(options =>
-    options.UseSqlServer("Server=(LocalDB)\\MSSQLLocalDB;Database=PlayerMgt;Trusted_Connection=True;MultipleActiveResultSets=True")
+    options.UseSqlServer("server=DESKTOP-O2QVSJN\\SQLEXPRESS;Database=PlayerMgt;Trusted_Connection=True;MultipleActiveResultSets=True")
 );
 
 var app = builder.Build();

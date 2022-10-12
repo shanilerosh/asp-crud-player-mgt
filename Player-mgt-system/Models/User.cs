@@ -7,6 +7,7 @@ namespace Player_mgt_system.Models
     {
         [Key]
         public int UserId { get; set; }
+        
         [Column(TypeName="nvarchar(250)")]
         [Required]
         public string Username { get; set; }
@@ -19,6 +20,7 @@ namespace Player_mgt_system.Models
         [Required]
         public string role { get; set; }
 
+        [Column(TypeName = "nvarchar(250)")]
         [Required]
         public string AuthStatus { get; set; }
 
