@@ -5,6 +5,7 @@ using Player_mgt_system.Models;
 
 namespace Player_mgt_system.Controllers;
 
+[Route("login")]
 public class LoginController : Controller
 {
     private readonly PlayerContext _context;
@@ -14,6 +15,9 @@ public class LoginController : Controller
         _context = context;
     }
     
+    [Route("")]
+    [Route("~/")]
+    [Route("index")]
     // GET
     public IActionResult Index()
     {
@@ -21,7 +25,7 @@ public class LoginController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
+    [Route("login")]
     public async Task<IActionResult> Login(LoginDto loginDto)
     {
         //check if user is 
@@ -38,10 +42,9 @@ public class LoginController : Controller
             return await ShowMessageAndReturn("Invalid Password for the user "+userData.Username);
         }
 
-        return RedirectToAction(nameof(Index));
-        
+        return RedirectToAction("Index", "Dashboard");
         //username not exist
-        
+
     }
 
     private async Task<IActionResult> ShowMessageAndReturn(string customMessage)
