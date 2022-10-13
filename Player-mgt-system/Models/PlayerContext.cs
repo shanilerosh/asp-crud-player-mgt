@@ -14,5 +14,7 @@ namespace Player_mgt_system.Models
         public DbSet<User> Users{ get; set; }
 
         public DbSet<Player_mgt_system.Models.Team>? Team { get; set; }
+
+        public DbSet<Player_mgt_system.Models.Trophy>? Trophy { get; set; }
     }
 }

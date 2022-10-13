@@ -15,7 +15,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddScoped<ILoginService, LoginServiceImpl>();
 
 builder.Services.AddDbContext<PlayerContext>(options =>
-    options.UseSqlServer("Server=(LocalDB)\\MSSQLLocalDB;Database=PlayerMgt;Trusted_Connection=True;MultipleActiveResultSets=True")
+    options.UseSqlServer("server=DESKTOP-O2QVSJN\\SQLEXPRESS;Database=PlayerMgt;Trusted_Connection=True;MultipleActiveResultSets=True")
 );
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<PlayerContext>();
