@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - Auction Management System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/playerMgtStyle.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Player_mgt_system.styles.css" asp-append-version="true" />
     
     </head>
@@ -18,13 +19,16 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" >
+                    <ul class="navbar-nav flex-grow-1" id="menuSection">
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Team" asp-action="Index">Manage Teams</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Player" asp-action="Index">Manage Players</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Trophy" asp-action="Index">Manage Trophy</a>
                         </li>
                     </ul>
                 </div>
@@ -36,12 +40,23 @@
             @RenderBody()
         </main>
     </div>
-
     
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://kit.fontawesome.com/81cf753544.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            if (window.location.href==="http://localhost:54565/"||window.location.href==="http://localhost:54565/login"||window.location.href==="http://localhost:54565/login/index"){
+                document.getElementById("menuSection").style.display = "none";
+            }else{
+                document.getElementById("menuSection").style.display = "flex";
+            }
+          
+          
+        };
+        
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

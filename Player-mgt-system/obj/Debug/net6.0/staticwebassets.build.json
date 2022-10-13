@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "L8rtMVLM565/gI4wFY0T3r0X1yEj+J9L8IDji1qyLZY=",
+  "Hash": "5aMO7bdUgjCcPw6Hx49Bi0gDOCw/EBswo2FY5x6QIT8=",
   "Source": "Player-mgt-system",
   "BasePath": "_content/Player-mgt-system",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\User\\source\\repos\\asp-crud-player-mgt\\Player-mgt-system\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Player-mgt-system.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\asp-crud-player-mgt\\Player-mgt-system\\wwwroot\\css\\playerMgtStyle.css",
+      "SourceId": "Player-mgt-system",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\asp-crud-player-mgt\\Player-mgt-system\\wwwroot\\",
+      "BasePath": "_content/Player-mgt-system",
+      "RelativePath": "css/playerMgtStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\playerMgtStyle.css"
     },
     {
       "Identity": "C:\\Users\\User\\source\\repos\\asp-crud-player-mgt\\Player-mgt-system\\wwwroot\\css\\site.css",
