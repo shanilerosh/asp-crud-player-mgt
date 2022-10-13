@@ -1,5 +1,4 @@
-﻿@using System.Web
-@using Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model Player_mgt_system.dto.LoginDto
 
 @{
@@ -48,7 +47,7 @@
                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                 <p class="text-white-50 mb-5">Please enter your Username and Password</p>
                 <div class="@(null != TempData["hasError"] ? "show" : "hide" ) alert alert-danger">
-                    <h6>@TempData["Message"]</h6>
+                  <h6>@TempData["Message"]</h6>
                 </div>
                 <div class="form-group form-outline form-white mb-4">
                   <input asp-for="UserName" id="typeEmailX" class="form-control form-control-lg"/>
@@ -79,8 +78,6 @@
       </div>
     </div>
   </div>
-  @Model
-  @Html.Raw(HttpUtility.HtmlDecode((Html.ValidationSummary(false, "", new { @class = "exception" })).ToString()))
 </section>
 
 @section Scripts {

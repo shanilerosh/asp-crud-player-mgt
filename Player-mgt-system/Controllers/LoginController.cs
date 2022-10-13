@@ -2,17 +2,18 @@
 using Microsoft.EntityFrameworkCore;
 using Player_mgt_system.dto;
 using Player_mgt_system.Models;
+using Player_mgt_system.Service;
 
 namespace Player_mgt_system.Controllers;
 
 [Route("login")]
 public class LoginController : Controller
 {
-    private readonly PlayerContext _context;
+    private readonly ILoginService _loginService;
 
-    public LoginController(PlayerContext context)
+    public LoginController(ILoginService loginService)
     {
-        _context = context;
+        _loginService = loginService;
     }
     
     [Route("")]
@@ -28,23 +29,19 @@ public class LoginController : Controller
     [Route("login")]
     public async Task<IActionResult> Login(LoginDto loginDto)
     {
-        //check if user is 
-        var userData = await _context.Users.FirstOrDefaultAsync(obj => obj.Username == loginDto.UserName);
-
-        if (null == userData)
+        try
         {
-            return await ShowMessageAndReturn("User Not found");
+            await _loginService.Login(loginDto);
+            return RedirectToAction("Index", "Dashboard");
         }
-        
-        //validate if the password entered correctly
-        if (!BCrypt.Net.BCrypt.Verify(loginDto.Password, userData.Password))
+        catch (InvalidDataException e)
         {
-            return await ShowMessageAndReturn("Invalid Password for the user "+userData.Username);
+            return await ShowMessageAndReturn(e.Message);
         }
-
-        return RedirectToAction("Index", "Dashboard");
-        //username not exist
-
+        catch (Exception e)
+        {
+            return await ShowMessageAndReturn("System Error. Please try again");
+        }
     }
 
     private async Task<IActionResult> ShowMessageAndReturn(string customMessage)
