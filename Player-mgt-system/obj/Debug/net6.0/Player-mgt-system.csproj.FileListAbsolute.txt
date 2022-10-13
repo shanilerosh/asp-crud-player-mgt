@@ -549,3 +549,11 @@ C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\obj\Debug\net
 C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\obj\Debug\net6.0\Player-mgt-system.pdb
 C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\obj\Debug\net6.0\Player-mgt-system.genruntimeconfig.cache
 C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\obj\Debug\net6.0\ref\Player-mgt-system.dll
+C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\obj\Debug\net6.0\Player-mgt-system.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Admin\RiderProjects\asp-crud-player-mgt\Player-mgt-system\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
