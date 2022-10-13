@@ -34,7 +34,8 @@ namespace Player_mgt_system.Controllers
             {
                 return NotFound();
             }
-
+            
+            
             return View(player);
         }
 
