@@ -37,11 +37,19 @@ namespace Player_mgt_system.Controllers
 
             var trophy = await _context.Trophy
                 .FirstOrDefaultAsync(m => m.TrophyId == id);
+            
             if (trophy == null)
             {
                 return NotFound();
             }
 
+            var lisr = await _context.TrophyMatch.ToListAsync();
+
+
+            var trophyMatch = lisr.Where(obj => obj.Trophy.Equals(trophy)).ToList();
+
+            trophy.TrophyMatchList = trophyMatch;
+            
             return View(trophy);
         }
 
