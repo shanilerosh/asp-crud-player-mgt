@@ -86,6 +86,7 @@ namespace Player_mgt_system.Controllers
             player.PlayerName = userDto.PlayerName;
             player.Description= userDto.Description;
             player.Speciality= userDto.Speciality;
+            player.BasePrice= userDto.BasePrice;
             player.Country= userDto.Country;
 
             player.PlayerUser = user;
@@ -120,7 +121,7 @@ namespace Player_mgt_system.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlayId,PlayerName,Country,Registration,Speciality,Description")] Player player)
+        public async Task<IActionResult> Edit(int id, [Bind("PlayId,PlayerName,Country,Speciality,Description,BasePrice")] Player player)
         {
             if (id != player.PlayId)
             {

@@ -59,7 +59,7 @@ namespace Player_mgt_system.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TeamId,TeamName,TeamOwner,TeamState,Description")] Team team)
+        public async Task<IActionResult> Create([Bind("TeamId,TeamName,TeamOwner,TeamState,Description,MaxPrice")] Team team)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Player_mgt_system.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TeamId,TeamName,TeamOwner,TeamState,Description")] Team team)
+        public async Task<IActionResult> Edit(int id, [Bind("TeamId,TeamName,TeamOwner,TeamState,Description,MaxPrice")] Team team)
         {
             if (id != team.TeamId)
             {

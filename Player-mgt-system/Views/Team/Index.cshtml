@@ -24,6 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxPrice)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -41,6 +44,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxPrice)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.TeamId" style="color: green"> <i class="fa-regular fa-pen-to-square"></i> Edit</a> |

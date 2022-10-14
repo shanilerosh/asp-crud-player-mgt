@@ -8,7 +8,7 @@
     Edit Trophy Details
   </div>
   <div class="card-body">
-        <form asp-action="Edit">
+        <form asp-action="Edit" asp-route-id="@Model.TrophyId">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="TrophyId" />
             <div class="row">
