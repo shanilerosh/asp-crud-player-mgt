@@ -21,9 +21,13 @@ namespace Player_mgt_system.Controllers
         // GET: Team
         public async Task<IActionResult> Index()
         {
-              return _context.Team != null ? 
-                          View(await _context.Team.ToListAsync()) :
-                          Problem("Entity set 'PlayerContext.Team'  is null.");
+            if(!string.IsNullOrWhiteSpace(HttpContext.Session.GetString(SessionVariables.SessionKeyUsername))){
+                return _context.Team != null ? 
+                    View(await _context.Team.ToListAsync()) :
+                    Problem("Entity set 'PlayerContext.Team'  is null.");       
+            }
+
+            return RedirectToAction("Index", "Login");
         }
 
         // GET: Team/Details/5

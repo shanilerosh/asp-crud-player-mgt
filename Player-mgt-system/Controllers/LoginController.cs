@@ -22,6 +22,11 @@ public class LoginController : Controller
     // GET
     public IActionResult Index()
     {
+        if(!string.IsNullOrWhiteSpace(HttpContext.Session.GetString(SessionVariables.SessionKeyUsername)))
+        {
+            return RedirectToAction("Index", "Dashboard");
+        }
+        
         return View();
     }
 
@@ -32,6 +37,10 @@ public class LoginController : Controller
         try
         {
             await _loginService.Login(loginDto);
+            
+            //save session
+            HttpContext.Session.SetString(SessionVariables.SessionKeyUsername, loginDto.UserName);
+            
             return RedirectToAction("Index", "Dashboard");
         }
         catch (InvalidDataException e)

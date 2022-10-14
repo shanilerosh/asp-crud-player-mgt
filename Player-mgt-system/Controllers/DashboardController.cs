@@ -15,10 +15,13 @@ namespace Player_mgt_system.Controllers
 
         public IActionResult Index()
         {
-            
-            return View();
+            if(!string.IsNullOrWhiteSpace(HttpContext.Session.GetString(SessionVariables.SessionKeyUsername))){
+                return View();       
+            }
+
+            return RedirectToAction("Index", "Login");
         }
 
-        
     }
+    
 }
