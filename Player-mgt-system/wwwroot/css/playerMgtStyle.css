@@ -1,0 +1,14 @@
+﻿.table>thead {
+    vertical-align: bottom;
+    background-color: #abdc35!important;
+}
+.body{
+    background-color: rgba(17, 1, 1, 0.2);
+}
+.form-control{
+    border-left: none!important;
+    border-right: none!important;
+    border-top: none!important;
+    border-radius: 0!important;
+    margin-bottom: 6px!important;
+}

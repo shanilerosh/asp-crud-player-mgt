@@ -4,10 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" style="color: green"><i class="fa-solid fa-file-circle-plus"></i> Create New Trophy</a>
 </p>
 <table class="table">
     <thead>
@@ -43,9 +42,9 @@
                 @Html.DisplayFor(modelItem => item.Venue)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TrophyId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TrophyId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TrophyId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.TrophyId" style="color: green"> <i class="fa-regular fa-pen-to-square"></i> Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TrophyId"> <i class="fa-regular fa-eye"></i> View</a> |
+                <a asp-action="Delete" asp-route-id="@item.TrophyId" style="color: red"><i class="fa-regular fa-trash"></i> Delete</a>
             </td>
         </tr>
 }

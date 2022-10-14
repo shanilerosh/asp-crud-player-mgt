@@ -4,11 +4,13 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Trophy</h4>
-    <hr />
+<div class="card">
+    <div class="card-header">
+        Trophy Details
+    </div>
+    <div class="card-body">
+        <div>
+   
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.TrophyName)
@@ -35,6 +37,8 @@
             @Html.DisplayFor(model => model.Venue)
         </dd>
     </dl>
+</div>
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.TrophyId">Edit</a> |
