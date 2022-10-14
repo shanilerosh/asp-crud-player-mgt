@@ -160,9 +160,13 @@ namespace Player_mgt_system.Controllers
           return (_context.Trophy?.Any(e => e.TrophyId == id)).GetValueOrDefault();
         }
         [HttpPost]
-        public async void CreateTrophy(TrophyDto dto)
+        public async Task<IActionResult> CreateTrophy(TrophyDto dto)
         {
+            //open transactrion
+            var transaction = _context.Database.BeginTransaction();
             
+            try
+            {
                 var Trophy = new Trophy();
                 var TropyMatchList = new List<TrophyMatch>();
 
@@ -175,6 +179,7 @@ namespace Player_mgt_system.Controllers
 
                 await _context.SaveChangesAsync();
 
+
                 foreach (var TrophyMatchData in dto.TrophyMatchList)
                 {
                     var TrophyMatch = new TrophyMatch();
@@ -182,15 +187,21 @@ namespace Player_mgt_system.Controllers
                     TrophyMatch.Location = TrophyMatchData.Location;
                     TrophyMatch.MatchName = TrophyMatchData.MatchName;
                     TrophyMatch.Trophy = Trophy;
-                    TropyMatchList.Add(TrophyMatch);
+                    _context.Add(TrophyMatch);
                 }
-
-                _context.Add(TropyMatchList);
-
                 await _context.SaveChangesAsync();
-                //return View(Trophy);
-            
-           
+                
+                //all changes occored successfully
+                transaction.Commit();
+                
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception e)
+            {
+                //rolled back
+                transaction.Rollback();
+                throw;
+            }
         }
     }
 }

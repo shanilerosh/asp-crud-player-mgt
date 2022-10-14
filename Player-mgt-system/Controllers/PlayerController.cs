@@ -17,9 +17,9 @@ namespace Player_mgt_system.Controllers
         // GET: Player
         public async Task<IActionResult> Index()
         {
-            if(!string.IsNullOrWhiteSpace(HttpContext.Session.GetString(SessionVariables.SessionKeyUsername))){
+            //if(!string.IsNullOrWhiteSpace(HttpContext.Session.GetString(SessionVariables.SessionKeyUsername))){
                 return View(await _context.players.ToListAsync());       
-            }
+            //}
 
             return RedirectToAction("Index", "Login");
         }
@@ -46,9 +46,9 @@ namespace Player_mgt_system.Controllers
         // GET: Player/Create
         public IActionResult Create()
         {
-            if(!string.IsNullOrWhiteSpace(HttpContext.Session.GetString(SessionVariables.SessionKeyUsername))){
+            //if(!string.IsNullOrWhiteSpace(HttpContext.Session.GetString(SessionVariables.SessionKeyUsername))){
                 return View();       
-            }
+           // }
 
             return RedirectToAction("Index", "Login");
             
