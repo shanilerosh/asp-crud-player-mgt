@@ -10,38 +10,133 @@
     Create New Trophy
   </div>
   <div class="card-body">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="row">
-            <div class="form-group col-md-6">
-                <label asp-for="TrophyName" class="control-label"></label>
-                <input asp-for="TrophyName" class="form-control" />
-                <span asp-validation-for="TrophyName" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-6">
-                <label asp-for="StartDate" class="control-label"></label>
-                <input asp-for="StartDate" class="form-control" />
-                <span asp-validation-for="StartDate" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-6">
-                <label asp-for="EndDate" class="control-label"></label>
-                <input asp-for="EndDate" class="form-control" />
-                <span asp-validation-for="EndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-6">
-                <label asp-for="Venue" class="control-label"></label>
-                <input asp-for="Venue" class="form-control" />
-                <span asp-validation-for="Venue" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-6">
-                <input type="submit" value="Create" class="btn btn-success mt-2" />
-            </div>
-            </div>
-        </form>
-  </div>
+      <form  id="trophyForm">
+          <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          <div class="row">
+              <div class="form-group col-md-6">
+                  <label asp-for="TrophyName" class="control-label"></label>
+                  <input asp-for="TrophyName" id="TrophyName" class="form-control" />
+                  <span asp-validation-for="TrophyName" class="text-danger"></span>
+              </div>
+              <div class="form-group col-md-6">
+                  <label asp-for="StartDate" class="control-label"></label>
+                  <input asp-for="StartDate" id="StartDate" class="form-control" />
+                  <span asp-validation-for="StartDate" class="text-danger"></span>
+              </div>
+              <div class="form-group col-md-6">
+                  <label asp-for="EndDate" class="control-label"></label>
+                  <input asp-for="EndDate" id="EndDate" class="form-control" />
+                  <span asp-validation-for="EndDate" class="text-danger"></span>
+              </div>
+              <div class="form-group col-md-6">
+                  <label asp-for="Venue" class="control-label"></label>
+                  <input asp-for="Venue" id="Venue" class="form-control" />
+                  <span asp-validation-for="Venue" class="text-danger"></span>
+              </div>
+             
+          </div>
+      </form>
+      <hr/>
+      <!--Match detail section-->
+      <div class="card">
+       
+          <div class="card-body">
+              
+              <div class="row">
+                  <div class="form-group col-md-6">
+                      <label  class="control-label">Name</label>
+                      <input id="matchName" type="text" class="form-control" />
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label  class="control-label">Date</label>
+                      <input  id="matchDate" type="date" class="form-control" />
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label  class="control-label">Location</label>
+                      <input id="location" type="text" class="form-control" />
+                  </div>
+                  <div class="form-group col-md-3">
+                      <i class="fa-solid fa-plus mt-5" onclick="setMacthDetail()" style="cursor: pointer"></i>
+                  </div>
+                  
+                  <div class="form-group col-md-12 mt-2">
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Date Time</th>
+                              <th>Location</th>
+                          </tr>
+                          </thead>
+                          <tbody id="matchTableBody">
+                            
+                          </tbody>
+                      </table>
+                  </div>
+                  
+              </div>
+              
+          </div>
+      </div>
+      <div class="form-group col-md-12 align-content-end">
+          <input type="button" onclick="submitData()" value="Create" class="btn btn-success mt-2" />
+      </div>
+      
 </div>
-
+</div>
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+<script type="text/javascript">
+    let matchDetailList=[];
 
+    function setMacthDetail() {
+        
+        
+        let matchName = $("#matchName").val();
+        let matchDate= $("#matchDate").val();
+        let location=$("#location").val();
+        
+        let matchDetail={
+            MatchName:matchName,
+            Date:matchDate,
+            Location:location
+            
+        }
+        matchDetailList.push(matchDetail);
+        
+        $("#matchTableBody").append("<tr><td>" + matchName + 
+                                             "</td><td>" + matchDate + "</td><td>"+location+"</td></tr>");
+        
+        
+        
+    }
+    
+    function submitData(){
+          
+            
+            let trophyData={
+                TrophyName:$("#TrophyName").val(),
+                StartDate:$("#StartDate").val(),
+                EndDate:$("#EndDate").val(),
+                Venue:$("#Venue").val(),
+                TrophyMatchList:matchDetailList
+            }
+              console.log(JSON.stringify(trophyData))
+           $.ajax({
+                type: 'POST',
+                url:  '@Url.Action("CreateTrophy", "Trophy")',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                data: trophyData ,
+                success: function (result) {
+                    alert('Successfully Created');
+                    console.log(result);
+                },
+                error: function () {
+                    alert('Failed to create trophy');
+                    console.log('Failed ');
+                }
+           })
+                                   
+    }
+</script>

@@ -16,7 +16,8 @@ namespace Player_mgt_system.Models
         public string Speciality { get; set; }
         [Column(TypeName = "nvarchar(250)")]
         public string Description { get; set; }
+        //public decimal BasePrice { get; set; }
 
-        public User User { get; set; }
+        public User PlayerUser { get; set; }
     }
 }

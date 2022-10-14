@@ -18,6 +18,7 @@ namespace Player_mgt_system.Models
         public string TeamState { get; set; }
         [Column(TypeName = "nvarchar(250)")]
         public string Description { get; set; }
+        //public decimal MaxPrice { get; set; }
 
         public ICollection<Player> Players;
     }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\RiderProjects\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj": {}
+    "C:\\Users\\User\\source\\repos\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\RiderProjects\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj": {
+    "C:\\Users\\User\\source\\repos\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\RiderProjects\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj",
         "projectName": "Player-mgt-system",
-        "projectPath": "C:\\Users\\Admin\\RiderProjects\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\RiderProjects\\asp-crud-player-mgt\\Player-mgt-system\\obj\\",
+        "projectPath": "C:\\Users\\User\\source\\repos\\asp-crud-player-mgt\\Player-mgt-system\\Player-mgt-system.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\asp-crud-player-mgt\\Player-mgt-system\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

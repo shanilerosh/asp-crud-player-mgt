@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Player_mgt_system.dto;
 using Player_mgt_system.Models;
 
 namespace Player_mgt_system.Controllers
@@ -157,6 +158,39 @@ namespace Player_mgt_system.Controllers
         private bool TrophyExists(int id)
         {
           return (_context.Trophy?.Any(e => e.TrophyId == id)).GetValueOrDefault();
+        }
+        [HttpPost]
+        public async void CreateTrophy(TrophyDto dto)
+        {
+            
+                var Trophy = new Trophy();
+                var TropyMatchList = new List<TrophyMatch>();
+
+                Trophy.Venue = dto.Venue;
+                Trophy.StartDate = dto.StartDate;
+                Trophy.EndDate = dto.EndDate;
+                Trophy.TrophyName = dto.TrophyName;
+
+                _context.Add(Trophy);
+
+                await _context.SaveChangesAsync();
+
+                foreach (var TrophyMatchData in dto.TrophyMatchList)
+                {
+                    var TrophyMatch = new TrophyMatch();
+                    TrophyMatch.Date = TrophyMatchData.Date;
+                    TrophyMatch.Location = TrophyMatchData.Location;
+                    TrophyMatch.MatchName = TrophyMatchData.MatchName;
+                    TrophyMatch.Trophy = Trophy;
+                    TropyMatchList.Add(TrophyMatch);
+                }
+
+                _context.Add(TropyMatchList);
+
+                await _context.SaveChangesAsync();
+                //return View(Trophy);
+            
+           
         }
     }
 }

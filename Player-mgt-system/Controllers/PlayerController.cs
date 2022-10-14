@@ -88,7 +88,7 @@ namespace Player_mgt_system.Controllers
             player.Speciality= userDto.Speciality;
             player.Country= userDto.Country;
 
-            player.User = user;
+            player.PlayerUser = user;
 
 
             _context.Add(player);
@@ -192,4 +192,5 @@ namespace Player_mgt_system.Controllers
           return _context.players.Any(e => e.PlayId == id);
         }
     }
+    
 }
