@@ -18,6 +18,8 @@ namespace Player_mgt_system.Models
         public string Venue { get; set; }
         
         public List<TrophyMatch> TrophyMatchList { get; set; }
-
+        
+        
+        public List<Player_Trophy> Player_Trophies { get; set; }
     }
 }

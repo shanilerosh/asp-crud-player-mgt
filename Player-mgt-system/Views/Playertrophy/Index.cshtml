@@ -1,0 +1,110 @@
+﻿@model Player_mgt_system.dto.PlayerTrophyDto 
+
+<h1>Hello Workd</h1>
+
+<div class="row">
+    
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                Trophy Details
+            </div>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TrophyName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Venue)
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.TrophyDtos)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TrophyName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Venue)
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.TrophyId"> <i class="fa-regular fa-eye"></i> Apply </a> |
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+    <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    My Current Fixtures
+                </div>
+    
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TrophyName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StartDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EndDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Venue)
+                        </th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model.CurrentTrophies)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TrophyName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EndDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Venue)
+                            </td>
+                            <td>
+                                <a asp-action="Remove" asp-route-id="@item.TrophyId"> <i class="fa-regular fa-eye"></i> Remove </a> |
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+</div>
+
+

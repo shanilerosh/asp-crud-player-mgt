@@ -19,5 +19,7 @@ namespace Player_mgt_system.Models
         public decimal BasePrice { get; set; }
 
         public User PlayerUser { get; set; }
+
+        public List<Player_Trophy> Player_Trophies { get; set; }
     }
 }
