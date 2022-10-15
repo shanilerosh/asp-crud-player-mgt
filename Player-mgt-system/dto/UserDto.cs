@@ -24,5 +24,8 @@ namespace Player_mgt_system.dto
         [Required]
         [DisplayName("Description")]
         public string Description { get; set; }
+        [Required]
+        [DisplayName("Base Price")]
+        public decimal BasePrice { get; set; }
     }
 }

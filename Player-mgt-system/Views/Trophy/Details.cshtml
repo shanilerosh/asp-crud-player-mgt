@@ -11,32 +11,64 @@
     <div class="card-body">
         <div>
    
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TrophyName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TrophyName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Venue)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Venue)
-        </dd>
-    </dl>
+            <dl class="row">
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.TrophyName)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.TrophyName)
+                </dd>
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.StartDate)
+                </dd>
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.EndDate)
+                </dd>
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.Venue)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.Venue)
+                </dd>
+            </dl>
+            <hr/>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Match Name
+                        </th>
+                        <th>
+                           Date Time
+                        </th>
+                        <th>
+                           Location
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+            @foreach (var item in Model.TrophyMatchList) {
+                <tr>
+                    <td>
+                         @item.MatchName  
+                    </td>
+                    <td>
+                        @item.Date
+                    </td>
+                    <td>
+                        @item.Location
+                    </td>
+
+                </tr>
+            }
+                </tbody>
+            </table>
 </div>
     </div>
 </div>
