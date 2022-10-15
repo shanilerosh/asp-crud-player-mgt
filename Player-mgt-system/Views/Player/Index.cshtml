@@ -4,62 +4,69 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Player Details</h2>
 
 <p>
-    <a asp-action="Create" style="color: green" id="createPlayer"><i class="fa-solid fa-user" ></i> Create New</a>
+    <a asp-action="Create" style="color: green" id="createPlayer"><i class="fa-solid fa-user" ></i> Create New Player</a>
 </p>
-<table class="table">
-    <thead class="table-bordered">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PlayerName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Speciality)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BasePrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlayerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Speciality)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BasePrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" class="editPlayer" asp-route-id="@item.PlayId" style="color: green">
-                    <i class="fa-regular fa-pen-to-square"></i> Edit |
-                </a> 
-                <a asp-action="Details" asp-route-id="@item.PlayId"><i class="fa-regular fa-eye"></i>  View | </a> 
-                <a asp-action="Delete" asp-route-id="@item.PlayId" class="playerDelete" style="color: red"><i class="fa-regular fa-trash"></i>  Delete</a>
+<div class="card">
+    <div class="card-header">
+        Player Details
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead class="table-bordered">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlayerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Speciality)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BasePrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlayerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Speciality)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BasePrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" class="editPlayer" asp-route-id="@item.PlayId" style="color: green">
+                            <i class="fa-regular fa-pen-to-square"></i> Edit |
+                        </a> 
+                        <a asp-action="Details" asp-route-id="@item.PlayId"><i class="fa-regular fa-eye"></i>  View | </a> 
+                        <a asp-action="Delete" asp-route-id="@item.PlayId" class="playerDelete" style="color: red"><i class="fa-regular fa-trash"></i>  Delete</a>
                 
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
 
 <script type="text/javascript">
        console.log( sessionStorage.getItem("ROLE"))

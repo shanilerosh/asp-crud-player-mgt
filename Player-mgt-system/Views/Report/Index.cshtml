@@ -1,0 +1,149 @@
+﻿
+<div class="card">
+  <div class="card-header">
+    Reports
+  </div>
+  <div class="card-body">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab"
+                data-bs-toggle="tab" data-bs-target="#playerContent"
+                type="button" role="tab" aria-controls="home" aria-selected="true">Player Report</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab"
+                data-bs-toggle="tab" data-bs-target="#teamContent" 
+                type="button" role="tab" aria-controls="profile" aria-selected="false">Team Report</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#ownerContent"
+                type="button" role="tab" aria-controls="contact" aria-selected="false">Owner Report</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#trophyContent"
+                type="button" role="tab" aria-controls="contact" aria-selected="false">Trophy Report</button>
+      </li>
+    </ul>
+    
+    
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="playerContent" role="tabpanel" aria-labelledby="home-tab">
+          <table class="table table-borderless mt-4">
+            <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">County</th>
+              <th scope="col">Description</th>
+              <th scope="col">Spesiality</th>
+            </tr>
+            </thead>
+            <tbody id="playerTableBody">
+            
+            </tbody>
+          </table>
+          
+        </div>
+        <div class="tab-pane fade" id="teamContent" role="tabpanel" aria-labelledby="profile-tab">
+          <table class="table table-borderless mt-4">
+            <thead>
+            <tr>
+              <th scope="col">Team Name</th>
+              <th scope="col">Team Owner</th>
+              <th scope="col">State</th>
+              <th scope="col">Max Price</th>
+              <th scope="col">Description</th>
+            </tr>
+            </thead>
+            <tbody id="teamTableBody">
+                      
+            </tbody>
+          </table>
+          
+          
+        </div>
+      <div class="tab-pane fade" id="ownerContent" role="tabpanel" aria-labelledby="contact-tab">
+        
+        <table class="table table-borderless mt-4">
+          <thead>
+          <tr>
+            <th scope="col">Owner Name</th>
+            <th scope="col">Country</th>
+          </tr>
+          </thead>
+          <tbody id="ownerTableBody">
+                              
+          </tbody>
+        </table>
+        
+      </div>
+      <div class="tab-pane fade" id="trophyContent" role="tabpanel" aria-labelledby="contact-tab">
+        <table class="table table-borderless mt-4">
+                  <thead>
+                  <tr>
+                    <th scope="col">Trophy Name</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Venue</th>
+                  </tr>
+                  </thead>
+                  <tbody id="trophyTableBody">
+                                      
+                  </tbody>
+                </table>
+      </div>
+      </div>
+  </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="https://kit.fontawesome.com/81cf753544.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+       getUserData();
+     
+        function getUserData(){
+            $.ajax({
+               type: 'GET',
+               url:  '@Url.Action("getReportData", "Report")',
+               success: function (result) {
+                  console.log('reportData--',result);
+                   $.each(result.playersList, function (key, entry) {
+                        $("#playerTableBody").append("<tr><td>" + entry.playerName + 
+                                             "</td><td>" + entry.country +
+                                              "</td><td>"+entry.description+
+                                              "</td><td>"+entry.speciality+"</td></tr>");
+                   });
+                   $.each(result.owners, function (key, entry) {
+                        $("#ownerTableBody").append(
+                                "<tr><td>" + entry.ownerName + 
+                                              "</td><td>"+entry.country+
+                                              "</td></tr>");
+                   });
+                   $.each(result.teams, function (key, entry) {
+                        $("#teamTableBody").append(
+                                "<tr><td>" + entry.teamName + 
+                                             "</td><td>" + entry.teamOwner +
+                                              "</td><td>"+entry.teamState+
+                                              "</td><td>"+entry.maxPrice+
+                                              "</td><td>"+entry.description+
+                                              "</td></tr>");
+                   });
+                   $.each(result.trophies, function (key, entry) {
+                         $("#trophyTableBody").append(
+                                       "<tr><td>" + entry.trophyName + 
+                                                    "</td><td>" + entry.startDate +
+                                                     "</td><td>"+entry.endDate+
+                                                     "</td><td>"+entry.venue+
+                                                     "</td></tr>");
+                          });
+                   
+                  
+               },
+               error: function () {
+                   console.log('Failed ');
+               }
+            });
+       }
+      
+</script>

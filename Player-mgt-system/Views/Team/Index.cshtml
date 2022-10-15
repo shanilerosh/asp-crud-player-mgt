@@ -5,56 +5,63 @@
 }
 
 
-
 <p>
     <a asp-action="Create" style="color: green"><i class="fa-solid fa-file-circle-plus"></i> Create New Team</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TeamName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TeamOwner)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TeamState)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaxPrice)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeamName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeamOwner)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeamState)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxPrice)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TeamId" style="color: green"> <i class="fa-regular fa-pen-to-square"></i> Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TeamId"><i class="fa-regular fa-eye"></i> View</a> |
-                <a asp-action="Delete" asp-route-id="@item.TeamId" style="color: red"><i class="fa-regular fa-trash"></i> Delete</a>
-                
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="card">
+  <div class="card-header">
+    Team Details
+  </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TeamName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TeamOwner)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TeamState)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MaxPrice)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeamName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeamOwner)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeamState)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaxPrice)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.TeamId" style="color: green"> <i class="fa-regular fa-pen-to-square"></i> Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.TeamId"><i class="fa-regular fa-eye"></i> View</a> |
+                        <a asp-action="Delete" asp-route-id="@item.TeamId" style="color: red"><i class="fa-regular fa-trash"></i> Delete</a>
+                        
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+    </div>
+</div>
+
