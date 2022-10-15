@@ -176,7 +176,6 @@ namespace Player_mgt_system.Controllers
             try
             {
                 var Trophy = new Trophy();
-                var TropyMatchList = new List<TrophyMatch>();
 
                 Trophy.Venue = dto.Venue;
                 Trophy.StartDate = dto.StartDate;
@@ -196,6 +195,20 @@ namespace Player_mgt_system.Controllers
                     TrophyMatch.MatchName = TrophyMatchData.MatchName;
                     TrophyMatch.Trophy = Trophy;
                     _context.Add(TrophyMatch);
+                }
+                foreach (var teamId in dto.ParticipatingTeams)
+                {
+                    var TrophyTeam = new Trophy_Team();
+                    
+                    TrophyTeam.TeamId = Int32.Parse(teamId);
+                    TrophyTeam.TrophyId = Trophy.TrophyId;
+                    
+                    var Team =  _context.Team.Find(Int32.Parse(teamId));
+                    
+                    TrophyTeam.Trophy = Trophy;
+                    TrophyTeam.Team = Team;
+                    
+                    _context.Add(TrophyTeam);
                 }
                 await _context.SaveChangesAsync();
                 

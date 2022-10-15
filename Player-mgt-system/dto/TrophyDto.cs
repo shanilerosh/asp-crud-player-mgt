@@ -17,6 +17,7 @@ namespace Player_mgt_system.dto
         public string TrophyName { get; set; }
         
         public List<TrophyMatchDto> TrophyMatchList { get; set; }
+        public List<string> ParticipatingTeams { get; set; }
         
     }
 }

@@ -35,7 +35,7 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Trophy" asp-action="Index" >Manage Auction</a>
                         </li>
                         <li class="nav-item" id="applyTrophy">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Trophy" asp-action="Index" >Apply for Trophy</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Playertrophy" asp-action="Index" >Apply for Trophy</a>
                         </li>
                         <li class="nav-item" id="reports">
                             <a class="nav-link text-white" asp-area="" asp-controller="Trophy" asp-action="Index" >Reports</a>
@@ -85,7 +85,6 @@
         }
         function manageMenue(role){
             if (role==="USER_ADMIN"){
-                alert(role);
               
             }else if (role==="USER_PLAYER"){
                 document.getElementById("manageAuction").style.display = "none";

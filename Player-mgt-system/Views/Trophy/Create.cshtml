@@ -33,6 +33,11 @@
                   <input asp-for="Venue" id="Venue" class="form-control" />
                   <span asp-validation-for="Venue" class="text-danger"></span>
               </div>
+              <div class="form-group col-md-6">
+                  <label  class="control-label">Participating Teams</label>
+                  <select  class="form-select" aria-label="Default select example" id="participatingTeams" multiple>
+                  </select>
+              </div>
              
           </div>
       </form>
@@ -89,12 +94,17 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript">
     let matchDetailList=[];
-
+    let participatingTeams=[];
+    getTeams();
+    $('#participatingTeams').change(function() {
+        participatingTeams.length!==0?participatingTeams.length=0:'';
+        participatingTeams=$(this).val();
+    });
     function setMacthDetail() {
-        
-        
+ 
         let matchName = $("#matchName").val();
         let matchDate= $("#matchDate").val();
         let location=$("#location").val();
@@ -114,17 +124,15 @@
         
     }
     
-    function submitData(){
-          
-            
+    function submitData(){     
             let trophyData={
                 TrophyName:$("#TrophyName").val(),
                 StartDate:$("#StartDate").val(),
                 EndDate:$("#EndDate").val(),
                 Venue:$("#Venue").val(),
-                TrophyMatchList:matchDetailList
+                TrophyMatchList:matchDetailList,
+                ParticipatingTeams:participatingTeams
             }
-              console.log(JSON.stringify(trophyData))
            $.ajax({
                 type: 'POST',
                 url:  '@Url.Action("CreateTrophy", "Trophy")',
@@ -132,13 +140,30 @@
                 data: trophyData ,
                 success: function (result) {
                     alert('Successfully Created');
-                    console.log(result);
+                    location.reload()
                 },
                 error: function () {
                     alert('Failed to create trophy');
-                    console.log('Failed ');
                 }
            })
                                    
     }
+    
+         function getTeams(){
+                 $.ajax({
+                    type: 'GET',
+                    url:  '@Url.Action("GetTeams", "Team")',
+                    success: function (result) {
+                        $.each(result, function (key, entry) {
+                            $("#participatingTeams").append($('<option></option>').
+                            attr('value', entry.teamId).text(entry.teamName));
+                          })
+                    },
+                    error: function () {
+                        console.log('Failed ');
+                    }
+                 });
+                 
+                 
+            }
 </script>

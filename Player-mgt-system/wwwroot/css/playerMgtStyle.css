@@ -1,6 +1,7 @@
 ﻿.table>thead {
     vertical-align: bottom;
-    background-color: #abdc35!important;
+    background-color: #ff4081!important;
+    color: #fefefe!important;
 }
 .body{
     background-color: rgba(17, 1, 1, 0.2);
@@ -11,4 +12,9 @@
     border-top: none!important;
     border-radius: 0!important;
     margin-bottom: 6px!important;
+}
+
+.card-header {
+    background-color: #c60055!important;
+    color: #fefefe!important;
 }

@@ -61,13 +61,11 @@ namespace Player_mgt_system.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TeamId,TeamName,TeamOwner,TeamState,Description,MaxPrice")] Team team)
         {
-            if (ModelState.IsValid)
-            {
+         
                 _context.Add(team);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(team);
+                return View();
+            
         }
 
         // GET: Team/Edit/5
@@ -178,6 +176,13 @@ namespace Player_mgt_system.Controllers
             }
 
             return null;
+        }
+        public IActionResult GetTeams()
+        {
+            var teams =
+                _context.Team.Select(r=>r).ToList();
+
+            return Ok(teams);
         }
     }
 }
