@@ -5,6 +5,8 @@ namespace Player_mgt_system.dto
 {
     public class TrophyDto
     {
+        
+        public int TrophyId { get; set; }
         [Required]
         public string Venue { get; set; }
         [Required]
