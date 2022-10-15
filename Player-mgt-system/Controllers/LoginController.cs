@@ -59,4 +59,11 @@ public class LoginController : Controller
         TempData["hasError"] = "display: block";
         return RedirectToAction(nameof(Index));
     }
+
+    [Route("Logout")]
+    private async Task<IActionResult> Logout()
+    {
+        HttpContext.Session.Remove(SessionVariables.SessionKeyUsername);
+        return RedirectToAction("Index", "Login");
+    }
 }

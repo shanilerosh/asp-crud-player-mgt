@@ -18,3 +18,13 @@
     background-color: #00675b!important;
     color: #fefefe!important;
 }
+
+.nav-tabs .nav-link {
+    margin-bottom: -1px;
+    background: 0 0;
+    border: 1px solid #150e0e;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    background-color: #00675b;
+    color: white;
+}
