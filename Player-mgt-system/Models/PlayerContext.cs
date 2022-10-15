@@ -21,6 +21,17 @@ namespace Player_mgt_system.Models
                 .HasOne(b => b.Trophy)
                 .WithMany(pl => pl.Player_Trophies)
                 .HasForeignKey(pl => pl.TrophyId);
+            
+            
+            modelBuilder.Entity<Trophy_Team>()
+                .HasOne(b => b.Trophy)
+                .WithMany(pl => pl.Trophy_Team)
+                .HasForeignKey(pl => pl.TrophyId);
+            
+            modelBuilder.Entity<Trophy_Team>()
+                .HasOne(b => b.Team)
+                .WithMany(pl => pl.Trophy_Team)
+                .HasForeignKey(pl => pl.TeamId);
         }
 
         public DbSet<Player> players{ get; set; }
@@ -34,6 +45,8 @@ namespace Player_mgt_system.Models
         public DbSet<Player_mgt_system.Models.TrophyMatch>? TrophyMatch { get; set; }
         
         public DbSet<Player_mgt_system.Models.Player_Trophy>? PlayerTrophies { get; set; }
+        
+        public DbSet<Player_mgt_system.Models.Trophy_Team>? TrophyTeams { get; set; }
         
     }
 }

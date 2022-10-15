@@ -21,5 +21,7 @@ namespace Player_mgt_system.Models
         
         
         public List<Player_Trophy> Player_Trophies { get; set; }
+        
+        public List<Trophy_Team> Trophy_Team { get; set; }
     }
 }

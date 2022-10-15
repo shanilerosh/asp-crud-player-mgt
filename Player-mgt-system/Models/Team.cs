@@ -21,5 +21,7 @@ namespace Player_mgt_system.Models
         public decimal MaxPrice { get; set; }
 
         public ICollection<Player> Players;
+        
+        public List<Trophy_Team> Trophy_Team { get; set; }
     }
 }
