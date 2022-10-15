@@ -1,1 +1,82 @@
-﻿<h1>Hello</h1>
+﻿
+<div class="text-center">
+    <p class="display-4" id="welcomeText"> </p>
+</div>
+<div id="tileSection" class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card" style="width: 100%;height:162%;background: #e91e63;color: white;font-size: 20px" >
+        <div class="card-body">
+          <p class="card-text" id="countTeam"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 100%;height:162%;background: #9c27b0;color: white;font-size: 20px">
+        <div class="card-body">
+          <p class="card-text" id="countPlayer"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 100%;height:162%;background: #3f51b5;color: white;font-size: 20px">
+        <div class="card-body">
+          <p class="card-text" id="countTrophy"></p>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+   <div class="row">
+     <div class="col-md-4">
+          <div class="card" style="width: 100%;height:90%;background: #4caf50;color: white;font-size: 20px;margin-top: 63px">
+            <div class="card-body">
+              <p class="card-text" id="countOwner"></p>
+            </div>
+          </div>
+        </div>
+     </div>
+   </div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="https://kit.fontawesome.com/81cf753544.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+       getUserData();
+       getDashboardData();
+   
+        function getUserData(){
+            $.ajax({
+               type: 'GET',
+               url:  '@Url.Action("GetUserData", "Dashboard")',
+               success: function (result) {
+                 result[0].role!=="USER_ADMIN"?
+                 document.getElementById("tileSection").style.display = "none":'';
+                   $('#welcomeText').append('<span style=" color: #18151754;font-size: 17px;margin-left: 891px;padding-bottom: 25px;font-weight: 500;font-family: monospace;">Welcome  '+(result[0].username)+' ' +(getRole(result[0].role))+'</span>');
+
+               },
+               error: function () {
+                   console.log('Failed ');
+               }
+            });
+       }
+        function getRole(val){
+             return val ==="USER_ADMIN"?"(Admin)":val ==="USER_OWNER"?"(Owner)":"(Player)"
+        }
+        function getDashboardData(){
+                    $.ajax({
+                       type: 'GET',
+                       url:  '@Url.Action("GetDashboardData", "Dashboard")',
+                       success: function (result) {
+                            $('#countOwner').append('<span >Registered Owners - '+(result.ownerCount)+'</span>');
+                            $('#countPlayer').append('<span >Registered Players - '+(result.playerCount)+'</span>');
+                            $('#countTeam').append('<span >Registered Teams - '+(result.teamCount)+'</span>');
+                            $('#countTrophy').append('<span >Registered Trophies - '+(result.trophyCount)+'</span>');
+
+                       },
+                       error: function () {
+                           console.log('Failed ');
+                       }
+                    });
+               }
+</script>

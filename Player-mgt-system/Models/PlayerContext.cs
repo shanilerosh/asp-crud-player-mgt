@@ -48,5 +48,7 @@ namespace Player_mgt_system.Models
         
         public DbSet<Player_mgt_system.Models.Trophy_Team>? TrophyTeams { get; set; }
         
+        public DbSet<Player_mgt_system.Models.Owner>? Owner { get; set; }
+        
     }
 }

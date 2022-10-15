@@ -61,7 +61,9 @@ namespace Player_mgt_system.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TeamId,TeamName,TeamOwner,TeamState,Description,MaxPrice")] Team team)
         {
-         
+                var owner = await _context.Owner
+                .FirstOrDefaultAsync(m => m.OwnerId == Int32.Parse(team.TeamOwner));
+                team.TeamOwner = owner.OwnerName;
                 _context.Add(team);
                 await _context.SaveChangesAsync();
                 return View();

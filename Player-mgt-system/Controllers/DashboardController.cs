@@ -2,6 +2,7 @@
 using Player_mgt_system.Models;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using Player_mgt_system.dto;
 
 namespace Player_mgt_system.Controllers
 {
@@ -32,7 +33,20 @@ namespace Player_mgt_system.Controllers
 
             return Ok(user);
         }
+        public IActionResult  GetDashboardData()
+        {
+            var teamCount = _context.Team.Count();
+            var playerCount = _context.players.Count();
+            var tropyCount = _context.Trophy.Count();
+            var teamOwnersCount = _context.Owner.Count();
 
+            DashboardDto dto = new DashboardDto();
+            dto.TeamCount = teamCount;
+            dto.PlayerCount = playerCount;
+            dto.TrophyCount = tropyCount;
+            dto.OwnerCount = teamOwnersCount;
+            return Ok(dto);
+        }
     }
     
 }

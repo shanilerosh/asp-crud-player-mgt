@@ -22,4 +22,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Owner\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Owner\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Owner\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Owner\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Owner\Index.cshtml" />
+  </ItemGroup>
+
 </Project>
