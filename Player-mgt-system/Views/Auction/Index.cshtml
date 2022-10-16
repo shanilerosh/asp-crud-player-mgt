@@ -1,23 +1,14 @@
-﻿<div class="row">
+﻿@model Player_mgt_system.dto.AutionDto
+
+<div class="row">
     <div class="col-4">
         <label class="control-label">Trophy Name</label>
-        <select class="form-select">
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+        <select class="form-select" id="trophy-select">
+            @foreach (var item in Model.TrophyDtos)
+            {
+                <option value="@item.TrophyId">@item.TrophyName</option>
+            }
         </select>
-    </div>
-    <div class="col-8">
-        <h6>List of Teams</h6>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -25,72 +16,159 @@
 <div class="row">
     
     <div class="col-6">
-        <h6>Already Selected Users</h6>
+        <h6>Available Players</h6>
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">PlayerId</th>
+                <th scope="col">TrophyId</th>
+                <th scope="col">View Details</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
-            </tr>
+            <tbody id="player-trophy">
             </tbody>
         </table>
     </div>
     
     
     <div class="col-6">
-            <h6>Available Users</h6>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Otto</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Otto</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Otto</td>
-                </tr>
-                </tbody>
-            </table>
+        <div class="card">
+            <div class="card-header">
+                Player Details
+            </div>
+            <div class="card-body">
+               <div>
+                   <dl class="row">
+                       <dt class = "col-sm-2">
+                           Player Name
+                       </dt>
+                       <dd class = "col-sm-10" id="player-name">
+                       </dd>
+                       <dt class = "col-sm-2">
+                           Country
+                       </dt>
+                       <dd class = "col-sm-10" id="player-country">
+                           
+                       </dd>
+
+                       <dt class = "col-sm-2">
+                           Speciality
+                       </dt>
+                       <dd class = "col-sm-10" id="specialty">
+                           
+                       </dd>
+                       <dt class = "col-sm-2">
+                           Base Price
+                       </dt>
+                       
+                       <dd class = "col-sm-10" id="base-price">
+                       </dd>
+                       
+                       <dt class = "col-sm-2">
+                           Description
+                       </dt>
+                       <dd class = "col-sm-10" id="description">
+                           
+                       </dd>
+                   </dl>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <h6>List of Teams</h6>
+            @foreach (var item in Model.TeamDtos)
+                        {
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@item.TeamName</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">@item.TeamName</h6>
+                                    <p class="card-text">@item.Description</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        }
         </div>
 
-</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="https://kit.fontawesome.com/81cf753544.js" crossorigin="anonymous"></script>
+<script >
+
+
+
+    const handleDetails = (id) => {
+        $.ajax({
+                                       type: 'GET',
+                                       url:  'Auction/GetPlayerById',
+                                       data: {
+                                           id
+                                           },
+                                       success: function (result) {
+                                           $('#player-name').text('')
+                                                                                      $('#player-country').text('')
+                                                                                      $('#specialty').text('')
+                                                                                      $('#description').text('')
+                                                                                      $('#base-price').text('')
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           $('#player-name').text(result.playerName)
+                                           $('#player-country').text(result.country)
+                                           $('#specialty').text(result.speciality)
+                                           $('#description').text(result.description)
+                                           $('#base-price').text(result.basePrice)
+                                       },
+                                       error: function () {
+                                           console.log('Failed ');
+                                       }
+                                    });
+                       
+    }
+
+    $("#trophy-select").change(function () { 
+               $.ajax({
+                               type: 'GET',
+                               url:  'Auction/Test',
+                               data: {
+                                   id: this.value
+                               },
+                               success: function (result) {
+                                   
+                                   for(let i = 0; i < result.length; i++) {
+                                        $('#player-trophy').append(
+                                                                               `<tr>
+                                                                                                <th scope="row">${i}</th>
+                                                                                                <td>${result[i].playerID}</td>
+                                                                                                <td>${result[i].trophyId}</td>
+                                                                                                <td><button class="btn btn-primary" onclick="handleDetails(${result[i].playerID})">View Details</button></td>
+                                                                                            </tr>`
+                                                                           ) 
+                                   }
+                                   console.log("'Dat==========", result)
+                                 // result[0].role!=="USER_ADMIN"?
+                                 // document.getElementById("tileSection").style.display = "none":'';
+                                 //   $('#welcomeText').append('<span style=" color: #18151754;font-size: 17px;margin-left: 891px;padding-bottom: 25px;font-weight: 500;font-family: monospace;">Welcome  '+(result[0].username)+' ' +(getRole(result[0].role))+'</span>');
+                                 //
+                               },
+                               error: function () {
+                                   console.log('Failed ');
+                               }
+                            });
+               
+               
+               
+            
+        });
+
+  
+</script>
